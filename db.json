@@ -1,0 +1,18 @@
+{
+  "featured-products": [
+    {
+      "id": 1,
+      "name": "Minimalist Cotton Shirt",
+      "price": 450000,
+      "category": "Apparel",
+      "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 2,
+      "name": "Paper Texture Notebook",
+      "price": 120000,
+      "category": "Stationery",
+      "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500"
+    }
+  ]
+}
