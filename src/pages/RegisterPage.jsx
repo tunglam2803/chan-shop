@@ -69,7 +69,7 @@ export default function RegisterPage() {
     >
       <div className="absolute inset-0 bg-white/20 backdrop-blur-[3px]"></div>
 
-      <div className="relative z-10 w-full max-w-[380px] bg-white border border-[#E5E5E5] p-8 shadow-xl">
+      <div className="relative z-10 w-full max-w-95 bg-white border border-[#E5E5E5] p-8 shadow-xl">
         <header className="mb-8 text-center">
           <h1 className="font-['Montserrat'] text-2xl font-bold tracking-tight text-[#111111] uppercase">
             Create Account

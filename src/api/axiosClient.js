@@ -2,13 +2,11 @@ import axios from 'axios';
 
 // 1. Khởi tạo instance với cấu hình cơ bản
 const axiosClient = axios.create({
-  // URL Tailscale mới của bạn
-  baseURL: 'http://100.82.245.4:5083/api', 
+  baseURL: 'https://localhost:49265/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
-
 // 2. Interceptor cho Request
 axiosClient.interceptors.request.use(
   (config) => {

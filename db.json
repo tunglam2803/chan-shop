@@ -4,15 +4,64 @@
       "id": 1,
       "name": "Minimalist Cotton Shirt",
       "price": 450000,
-      "category": "Apparel",
+      "category": "Shirts",
       "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500"
     },
     {
       "id": 2,
       "name": "Paper Texture Notebook",
       "price": 120000,
-      "category": "Stationery",
+      "category": "Accessories",
       "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 3,
+      "name": "Classic Black Trousers",
+      "price": 890000,
+      "category": "Pants",
+      "image": "https://images.unsplash.com/photo-1542272604-787c62d465d1?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 4,
+      "name": "Premium Leather Belt",
+      "price": 320000,
+      "category": "Accessories",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 5,
+      "name": "Linen Relaxed Fit Shirt",
+      "price": 520000,
+      "category": "Shirts",
+      "image": "https://images.unsplash.com/photo-1500625046104-fa8a42c7d695?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 6,
+      "name": "Minimalist Sneakers",
+      "price": 1200000,
+      "category": "Accessories",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 7,
+      "name": "Tailored Chino Pants",
+      "price": 750000,
+      "category": "Pants",
+      "image": "https://images.unsplash.com/photo-1473286169904-658ba7c44d8a?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 8,
+      "name": "Wool Knit Sweater",
+      "price": 680000,
+      "category": "Shirts",
+      "image": "https://images.unsplash.com/photo-1578932750294-708f86da8e87?auto=format&fit=crop&w=500"
+    },
+    {
+      "id": 9,
+      "name": "Minimalist Canvas Bag",
+      "price": 580000,
+      "category": "Accessories",
+      "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500"
     }
   ]
 }

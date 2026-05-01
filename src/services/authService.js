@@ -1,4 +1,5 @@
-import axiosClient from './axiosClient';
+// Đường dẫn này trỏ về thư mục api chứa file axiosClient.js của bạn
+import axiosClient from '../api/axiosClient'; 
 
 const authService = {
   login: async (username, password) => {
@@ -14,7 +15,6 @@ const authService = {
     const url = '/Auth/register';
     const response = await axiosClient.post(url, {
       username,
-      phoneNumber,
       email,
       password,
     });
