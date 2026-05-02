@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const location = useLocation(); // Lấy URL hiện tại
+  const [cartCount, setCartCount] = useState(0);
+  const location = useLocation();
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const closeDropdown = () => setIsDropdownOpen(false);
 
-  // Danh sách categories để render nhanh
+  // Đọc số lượng giỏ hàng từ localStorage, cập nhật mỗi khi chuyển trang
+  useEffect(() => {
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+      setCartCount(total);
+    };
+    updateCartCount();
+    window.addEventListener("storage", updateCartCount);
+    window.addEventListener("cartUpdated", updateCartCount);
+    return () => {
+      window.removeEventListener("storage", updateCartCount);
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, [location]);
+
   const navItems = [
     { path: "/category/pants", label: "Pants" },
     { path: "/category/shirts", label: "Shirts" },
@@ -20,12 +36,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-white border-b border-[#E5E5E5] shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="font-['Montserrat'] text-2xl font-bold text-[#111111] tracking-tight">
             ChanShop
           </Link>
 
-          {/* Navigation Menu */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
               to="/"
@@ -36,7 +50,6 @@ export default function Header() {
               Home
             </Link>
 
-            {/* Category Dropdown */}
             <div className="relative group">
               <button
                 onClick={toggleDropdown}
@@ -45,11 +58,11 @@ export default function Header() {
                 }`}
               >
                 Category
-                <ChevronDown size={16} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={16} className={`transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
               </button>
 
               <div className={`absolute left-0 mt-2 w-48 bg-white border border-[#E5E5E5] shadow-xl rounded-lg overflow-hidden transition-all duration-200 ${
-                isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
               }`}>
                 {navItems.map((item) => (
                   <Link
@@ -74,11 +87,14 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right Section */}
           <div className="flex items-center gap-4">
             <Link to="/cart" className="relative p-2 text-[#111111] hover:text-[#6B7280]">
               <ShoppingCart size={20} />
-              <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+              {cartCount > 0 && (
+                <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Link>
             <Link to="/checkout" className="px-4 py-2 bg-[#111111] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#333333] transition-colors rounded">
               Payment
